@@ -27,7 +27,7 @@ export default {
 <style lang="scss">
 .home {
   width: 100%;
-  height: 100%;
+  height: auto;
   padding: 20px;
   background: #eee;
   box-sizing: border-box;
