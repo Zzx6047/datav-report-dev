@@ -18,7 +18,7 @@ export default {
   name: '',
   props: {
     title: String,
-    value: String
+    value: [String, Number]
   }
 }
 </script>
