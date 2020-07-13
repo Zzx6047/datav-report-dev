@@ -12,6 +12,7 @@ import BottomView from '../components/BottomView'
 import MapView from '../components/MapView'
 import SalesView from '../components/SalesView'
 import TopView from '../components/TopView'
+// import { test } from '../api/index'
 
 export default {
   name: 'Home',
@@ -20,6 +21,9 @@ export default {
     MapView,
     SalesView,
     TopView
+  },
+  mounted () {
+    // test()
   }
 }
 </script>
