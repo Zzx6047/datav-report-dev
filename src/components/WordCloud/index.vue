@@ -3,7 +3,9 @@
 </template>
 
 <script>
+import commonDataMixin from '../../mixins/commonDataMixin'
 export default {
+  mixins: [commonDataMixin],
   data () {
     return {
       chartData: {

@@ -15,6 +15,18 @@ function wrapperArray (o, k) {
   return o && o[k] ? o[k] : []
 }
 
+function wrapperObject (o, k) {
+  if (o && k.indexOf('.') >= 0) {
+    const keys = k.split('.')
+    keys.forEach(key => {
+      o = o[key]
+    })
+    return o
+  } else {
+    return o && o[k] ? o[k] : {}
+  }
+}
+
 function wrapperPercentage (o, k) {
   return o && o[k] ? `${o[k]}%` : '0%'
 }
@@ -24,6 +36,16 @@ function wrapperMoney (o, k) {
 }
 
 export default {
+  // methods: {
+  //   formate (v) {
+  //     return formate(v)
+  //   }
+  // },
+  filters: {
+    formate (v) {
+      return formate(v)
+    }
+  },
   computed: {
     reportData () {
       return this.getReportData()
@@ -80,7 +102,7 @@ export default {
     userGrowthLastMonth () {
       return wrapperPercentage(this.reportData, 'userGrowthLastMonth')
     },
-    // 销售额
+    // 销售额与访问量
     orderFullYear () {
       return wrapperArray(this.reportData, 'orderFullYear')
     },
@@ -98,6 +120,21 @@ export default {
     },
     userRank () {
       return wrapperArray(this.reportData, 'userRank')
+    },
+    // 关键词搜索
+    wordCloud () {
+      return this.getWordCloud()
+    },
+    // 分类销售排行
+    category1 () {
+      return wrapperObject(this.reportData, 'category.data1')
+    },
+    category2 () {
+      return wrapperObject(this.reportData, 'category.data2')
+    },
+    // 销售大盘
+    mapData () {
+      return this.getMapData()
     }
   },
   inject: ['getReportData', 'getWordCloud', 'getMapData']
