@@ -11,7 +11,6 @@ function wordcloud () {
     }
   })
 }
-
 function mapScatter () {
   return request({
     url: '/screen/map/scatter',
