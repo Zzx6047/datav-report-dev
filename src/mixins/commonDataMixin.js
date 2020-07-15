@@ -97,10 +97,10 @@ export default {
       return wrapperOriginalNumber(this.reportData, 'userLastMonth')
     },
     userGrowthLastDay () {
-      return wrapperPercentage(this.reportData, 'userGrowthLastDay')
+      return wrapperNumber(this.reportData, 'userGrowthLastDay')
     },
     userGrowthLastMonth () {
-      return wrapperPercentage(this.reportData, 'userGrowthLastMonth')
+      return wrapperNumber(this.reportData, 'userGrowthLastMonth')
     },
     // 销售额与访问量
     orderFullYear () {

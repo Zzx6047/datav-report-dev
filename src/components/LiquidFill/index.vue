@@ -24,7 +24,7 @@ export default {
         columns: ['title', 'percent'],
         rows: [{
           title: '用户月同比增长',
-          percent: this.userGrowthLastMonth
+          percent: this.userGrowthLastMonth / 100
         }]
       }
       this.chartSettings = {
@@ -35,10 +35,7 @@ export default {
             color: [getColor(this.chartData.rows[0].percent)],
             label: {
               formatter: (v) => {
-                // return `${(v.data.value * 100).toFixed(2)}%`
-                console.log(v.data.value)
-
-                return `${(v.data.value)}`
+                return `${(v.data.value * 100).toFixed(2)}%`
               },
               textStyle: {
                 fontSize: 36,
